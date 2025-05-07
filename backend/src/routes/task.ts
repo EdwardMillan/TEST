@@ -6,6 +6,8 @@ import express from "express";
 import * as TaskController from "src/controllers/task";
 import * as TaskValidator from "src/validators/task";
 
+
+
 const router = express.Router();
 
 router.get("/:id", TaskController.getTask);
@@ -18,6 +20,8 @@ router.get("/:id", TaskController.getTask);
  * request should be sent through or an error should be thrown.
  */
 router.post("/", TaskValidator.createTask, TaskController.createTask);
+router.put("/:id", TaskValidator.updateTaskValidator, TaskController.updateTask);
 router.delete("/:id", TaskController.removeTask);
+
 
 export default router;
