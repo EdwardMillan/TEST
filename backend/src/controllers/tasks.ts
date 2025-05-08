@@ -9,4 +9,3 @@ export const getAllTasks: RequestHandler = async (req, res, next) => {
     next(error);
   }
 };
-

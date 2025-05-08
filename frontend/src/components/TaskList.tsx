@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
-import { getAllTasks, type Task } from "src/api/tasks";
+import { getAllTasks } from "src/api/tasks";
 import { TaskItem } from "src/components";
 import styles from "src/components/TaskList.module.css";
+
+import type { Task } from "src/api/tasks";
 
 export interface TaskListProps {
   title: string;
@@ -31,9 +33,7 @@ export function TaskList({ title }: TaskListProps) {
         {!loaded || tasks.length === 0 ? (
           <p>No tasks yet. Create one above!</p>
         ) : (
-          tasks.map((task) => (
-            <TaskItem key={task._id} task={task} />
-          ))
+          tasks.map((task) => <TaskItem key={task._id} task={task} />)
         )}
       </div>
     </div>

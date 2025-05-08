@@ -9,7 +9,6 @@ import { isHttpError } from "http-errors";
 import taskRoutes from "src/routes/task";
 import tasksRoutes from "src/routes/tasks"; // add this line
 
-
 const app = express();
 
 // initializes Express to accept JSON in the request/response body
@@ -28,7 +27,6 @@ app.use(
 
 app.use("/api/task", taskRoutes);
 app.use("/api/tasks", tasksRoutes); // add this line
-
 
 /**
  * Error handler; all errors thrown by server are handled here.

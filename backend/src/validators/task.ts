@@ -1,6 +1,5 @@
 import { body } from "express-validator";
 
-
 // more info about validators:
 // https://express-validator.github.io/docs/guides/validation-chain
 // https://github.com/validatorjs/validator.js#validators
@@ -55,4 +54,3 @@ export const updateTaskValidator = [
   makeDateCreatedValidator(),
   makeAssigneeValidator(), // for Part 2.1
 ];
-

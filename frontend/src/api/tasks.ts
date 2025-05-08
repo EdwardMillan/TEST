@@ -1,11 +1,10 @@
-import { get, handleAPIError, post } from "src/api/requests";
+import { get, handleAPIError, post, put } from "src/api/requests";
 
 import type { APIResult } from "src/api/requests";
 
 /**
  * Defines the "shape" of a Task object (what fields are present and their types) for
- * frontend components to use. This will be the return type of most functions in this
- * file.
+ * frontend components to use.
  */
 export interface Task {
   _id: string;
@@ -16,13 +15,7 @@ export interface Task {
 }
 
 /**
- * Defines the shape of JSON that we'll receive from the backend when we ask the API
- * for a Task object. That is, when the backend sends us a JSON object representing a
- * Task, we expect it to match these fields and types.
- *
- * The difference between this type and `Task` above is that `dateCreated` is a string
- * instead of a Date object. This is because JSON doesn't support Dates, so we use a
- * date-formatted string in requests and responses.
+ * JSON format of a Task received from the backend.
  */
 interface TaskJSON {
   _id: string;
@@ -33,11 +26,7 @@ interface TaskJSON {
 }
 
 /**
- * Converts a Task from JSON that only contains primitive types to our custom
- * Task interface.
- *
- * @param task The JSON representation of the task
- * @returns The parsed Task object
+ * Converts a raw JSON task into a Task object with a Date type.
  */
 function parseTask(task: TaskJSON): Task {
   return {
@@ -50,9 +39,7 @@ function parseTask(task: TaskJSON): Task {
 }
 
 /**
- * The expected inputs when we want to create a new Task object. In the MVP, we only
- * need to provide the title and optionally the description, but in the course of
- * this tutorial you'll likely want to add more fields here.
+ * Interface for creating a new task.
  */
 export interface CreateTaskRequest {
   title: string;
@@ -60,8 +47,7 @@ export interface CreateTaskRequest {
 }
 
 /**
- * The expected inputs when we want to update an existing Task object. Similar to
- * `CreateTaskRequest`.
+ * Interface for updating an existing task.
  */
 export interface UpdateTaskRequest {
   _id: string;
@@ -72,8 +58,7 @@ export interface UpdateTaskRequest {
 }
 
 /**
- * The implementations of these API client functions are provided as part of the
- * MVP. You can use them as a guide for writing the other client functions.
+ * Sends a POST request to create a new task.
  */
 export async function createTask(task: CreateTaskRequest): Promise<APIResult<Task>> {
   try {
@@ -85,6 +70,9 @@ export async function createTask(task: CreateTaskRequest): Promise<APIResult<Tas
   }
 }
 
+/**
+ * Fetches a single task by its ID.
+ */
 export async function getTask(id: string): Promise<APIResult<Task>> {
   try {
     const response = await get(`/api/task/${id}`);
@@ -94,10 +82,14 @@ export async function getTask(id: string): Promise<APIResult<Task>> {
     return handleAPIError(error);
   }
 }
+
+/**
+ * Fetches all tasks from the backend.
+ */
 export async function getAllTasks(): Promise<APIResult<Task[]>> {
   try {
     const response = await get("/api/tasks");
-    const json = await response.json(); // do NOT cast yet
+    const json = await response.json();
 
     if (!json.success) {
       throw new Error(json.error || "Unknown error");
@@ -110,8 +102,9 @@ export async function getAllTasks(): Promise<APIResult<Task[]>> {
   }
 }
 
-import { put } from "src/api/requests";
-
+/**
+ * Updates an existing task.
+ */
 export async function updateTask(task: UpdateTaskRequest): Promise<APIResult<Task>> {
   try {
     const response = await put(`/api/task/${task._id}`, task);
@@ -121,4 +114,3 @@ export async function updateTask(task: UpdateTaskRequest): Promise<APIResult<Tas
     return handleAPIError(error);
   }
 }
-

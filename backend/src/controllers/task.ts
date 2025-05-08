@@ -97,7 +97,7 @@ export const updateTask: RequestHandler = async (req, res, next) => {
     const updateResult = await TaskModel.findByIdAndUpdate(
       id,
       { title, description, isChecked, dateCreated },
-      { new: true } // return the updated document
+      { new: true }, // return the updated document
     );
 
     if (updateResult === null) {
