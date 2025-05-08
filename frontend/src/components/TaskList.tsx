@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { getAllTasks, type Task } from "src/api/tasks";
 import { TaskItem } from "src/components";
 import styles from "src/components/TaskList.module.css";

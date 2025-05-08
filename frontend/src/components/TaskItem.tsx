@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import type { Task } from "src/api/tasks";
 import { updateTask } from "src/api/tasks";
 import { CheckButton } from "src/components";
