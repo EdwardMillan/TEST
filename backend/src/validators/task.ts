@@ -46,7 +46,7 @@ export const createTask = [
   makeIsCheckedValidator(),
 ];
 
-export const updateTask = [
+export const updateTaskValidator = [
   makeIDValidator(),
   makeTitleValidator(),
   makeDescriptionValidator(),

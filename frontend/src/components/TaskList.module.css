@@ -1,0 +1,13 @@
+.container {
+  margin-top: 3rem;
+}
+
+.title {
+  font: var(--font-heading);
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
