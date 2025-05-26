@@ -7,7 +7,6 @@
   column-gap: 0.25rem;
   padding: 0 0.5rem;
   position: relative; /* Allow pseudo-element underline */
-
 }
 /* Bottom border line across the entire row */
 .item::after {
@@ -18,7 +17,6 @@
   right: 0;
   border-bottom: 1px solid var(--color-text-secondary);
 }
-
 
 .textContainer {
   flex-grow: 1;
@@ -68,7 +66,7 @@
   width: 1.5rem;
   height: 1.5rem;
   border-radius: 50%;
-  background-color: #FFFFFF; /* White outer ring */
+  background-color: #ffffff; /* White outer ring */
   display: flex;
   align-items: center;
   justify-content: center;

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { updateTask } from "src/api/tasks";
 import { CheckButton } from "src/components";
 import styles from "src/components/TaskItem.module.css";
+
 import type { Task } from "src/api/tasks";
 
 export interface TaskItemProps {
