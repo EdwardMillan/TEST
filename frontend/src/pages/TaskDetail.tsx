@@ -1,12 +1,10 @@
 import { useEffect, useState } from "react";
+import { useParams, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { Link, useParams } from "react-router-dom";
-import { HeaderBar } from "src/components/HeaderBar";
-
 import { getTask } from "../api/tasks";
-import styles from "../src/pages/TaskDetail.module.css";
-
 import type { Task } from "src/api/tasks";
+import styles from "./TaskDetail.module.css";
+import { HeaderBar } from "src/components/HeaderBar";
 
 export function TaskDetail() {
   const { id } = useParams();
@@ -48,9 +46,7 @@ export function TaskDetail() {
         </Helmet>
 
         <div className={styles.topBar}>
-          <Link to="/" className={styles.backLink}>
-            Back to home
-          </Link>
+          <Link to="/" className={styles.backLink}>Back to home</Link>
           <button className={styles.editButton}>Edit task</button>
         </div>
 
