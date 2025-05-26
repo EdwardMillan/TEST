@@ -1,25 +1,34 @@
 .item {
-  height: 3rem;
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
+  height: 3rem;
   column-gap: 0.25rem;
+  padding: 0 0.5rem;
+  position: relative; /* Allow pseudo-element underline */
+
+}
+/* Bottom border line across the entire row */
+.item::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 2.5rem; /* adjust this based on the width of the check icon + padding */
+  right: 0;
+  border-bottom: 1px solid var(--color-text-secondary);
 }
 
+
 .textContainer {
-  height: 100%;
-  border-bottom: 1px solid var(--color-text-secondary);
   flex-grow: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
   overflow: hidden;
 }
 
 .textContainer span {
-  width: 100%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -33,6 +42,36 @@
   font: var(--font-body);
 }
 
-.checked {
+.checked .title,
+.checked .description {
   color: var(--color-text-secondary);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.item:hover {
+  background-color: var(--color-surface);
+}
+
+.item:hover .title,
+.item:hover .description {
+  color: var(--color-text-primary);
+}
+
+.assignee {
+  display: flex;
+  align-items: center;
+  column-gap: 0.25rem;
+  font: var(--font-label);
+  color: var(--color-text-primary);
+}
+.avatar {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  background-color: #FFFFFF; /* White outer ring */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden; /* To cut off the inner circle cleanly */
 }
