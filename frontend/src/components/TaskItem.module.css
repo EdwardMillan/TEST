@@ -34,10 +34,16 @@
 
 .title {
   font: var(--font-label);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .description {
   font: var(--font-body);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .checked .title,
@@ -56,20 +62,13 @@
 }
 
 .assignee {
+  width: 12rem;
   display: flex;
-  align-items: center;
-  column-gap: 0.25rem;
-  font: var(--font-label);
-  color: var(--color-text-primary);
+  justify-content: flex-end;
 }
-.avatar {
-  width: 1.5rem;
-  height: 1.5rem;
-  border-radius: 50%;
-  background-color: #ffffff; /* White outer ring */
+
+.userTag {
+  width: 100%;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden; /* To cut off the inner circle cleanly */
+  justify-content: flex-end;
 }

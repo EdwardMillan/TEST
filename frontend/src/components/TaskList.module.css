@@ -44,12 +44,29 @@
 
 .title {
   font-weight: bold;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .description {
   font-size: 0.9rem;
   color: inherit;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
+.overflow {
+  width: 1em;
+outline: 1px solid #000;
+margin: 0 0 2em 0;
+/**
+ * Required properties to achieve text-overflow
+ */
+  white-space: nowrap;
+  overflow: hidden;
+}
+
 
 .right {
   font-size: 0.9rem;

@@ -34,12 +34,25 @@
   font-weight: bold;
   margin-bottom: 0.5rem;
   word-break: break-word;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .description {
   font-size: 1rem;
   margin-bottom: 2rem;
-  word-wrap: break-word;
+  
+}
+.overflow {
+  width: 1em;
+outline: 1px solid #000;
+margin: 0 0 2em 0;
+/**
+ * Required properties to achieve text-overflow
+ */
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .meta {
@@ -53,6 +66,9 @@
   align-items: center;
   gap: 0rem;
   margin-top: 0.25rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .avatar {

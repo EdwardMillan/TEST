@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { updateTask } from "src/api/tasks";
-import { CheckButton } from "src/components";
+import { CheckButton, UserTag } from "src/components"; /* 👈 Import UserTag */
 import styles from "src/components/TaskItem.module.css";
 
 import type { Task } from "src/api/tasks";
@@ -48,9 +48,9 @@ export function TaskItem({ task: initialTask }: TaskItemProps) {
         {task.description && <span className={styles.description}>{task.description}</span>}
       </div>
 
-      {/* User info display like in TaskDetail */}
+      {/* 🟡 Replace old avatar span with UserTag */}
       <div className={styles.assignee}>
-        <span className={styles.avatar}>👤</span> {task.assignee?.name || "User Name"}
+        <UserTag user={task.assignee} className={styles.userTag} />
       </div>
     </div>
   );
