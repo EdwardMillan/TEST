@@ -15,11 +15,12 @@ const SAVE_BUTTON_ID = "task-save-button";
 // Updated mock: include updateTask alongside createTask
 vi.mock("src/api/tasks", () => ({
   createTask: vi.fn((_params: CreateTaskRequest) =>
-    Promise.resolve({ success: true, data: { _id: "new-id", ..._params, isChecked: false, dateCreated: new Date() } })
+    Promise.resolve({
+      success: true,
+      data: { _id: "new-id", ..._params, isChecked: false, dateCreated: new Date() },
+    }),
   ),
-  updateTask: vi.fn((_task: UpdateTaskRequest) =>
-    Promise.resolve({ success: true, data: _task })
-  ),
+  updateTask: vi.fn((_task: UpdateTaskRequest) => Promise.resolve({ success: true, data: _task })),
 }));
 
 const mockTask: Task = {

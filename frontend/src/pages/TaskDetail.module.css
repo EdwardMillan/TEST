@@ -42,13 +42,12 @@
 .description {
   font-size: 1rem;
   margin-bottom: 2rem;
-  
 }
 .overflow {
   width: 1em;
-outline: 1px solid #000;
-margin: 0 0 2em 0;
-/**
+  outline: 1px solid #000;
+  margin: 0 0 2em 0;
+  /**
  * Required properties to achieve text-overflow
  */
   white-space: nowrap;

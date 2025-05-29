@@ -20,9 +20,7 @@ export function TaskForm({ mode, task, onSubmit }: TaskFormProps) {
   const [description, setDescription] = useState<string>(task?.description || "");
   const [assigneeId, setAssigneeId] = useState<string>(
     // Fix: If task?.assignee is a User, get its ID string, not the object
-    typeof task?.assignee === "string"
-      ? task.assignee
-      : task?.assignee?._id || ""
+    typeof task?.assignee === "string" ? task.assignee : task?.assignee?._id || "",
   );
   const [isLoading, setLoading] = useState<boolean>(false);
   const [errors, setErrors] = useState<TaskFormErrors>({});
@@ -34,23 +32,23 @@ export function TaskForm({ mode, task, onSubmit }: TaskFormProps) {
       return;
     }
     setLoading(true);
-  
+
     const request =
-    mode === "create"
-      ? createTask({
-          title,
-          description,
-          assignee: assigneeId || undefined,
-        })
-      : updateTask({
-          _id: task?._id || "",
-          title,
-          description,
-          assignee: assigneeId || undefined,
-          isChecked: task?.isChecked || false,
-          dateCreated: task?.dateCreated || new Date(), // ✅ Use Date object, not string
-        });
-  
+      mode === "create"
+        ? createTask({
+            title,
+            description,
+            assignee: assigneeId || undefined,
+          })
+        : updateTask({
+            _id: task?._id || "",
+            title,
+            description,
+            assignee: assigneeId || undefined,
+            isChecked: task?.isChecked || false,
+            dateCreated: task?.dateCreated || new Date(), // ✅ Use Date object, not string
+          });
+
     request
       .then((result) => {
         if (result.success) {
@@ -67,7 +65,6 @@ export function TaskForm({ mode, task, onSubmit }: TaskFormProps) {
       })
       .catch((reason) => alert(reason));
   };
-  
 
   const formTitle = mode === "create" ? "New task" : "Edit task";
 
