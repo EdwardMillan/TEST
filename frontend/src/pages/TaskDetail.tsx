@@ -11,8 +11,6 @@ import styles from "./TaskDetail.module.css";
 import { getTask } from "../api/tasks";
 import type { Task } from "src/api/tasks";
 
-
-
 export function TaskDetail() {
   const { id } = useParams();
   const [task, setTask] = useState<Task | null | undefined>();
@@ -65,7 +63,9 @@ export function TaskDetail() {
         ) : (
           <>
             <div className={styles.topBar}>
-              <Link to="/" className={styles.backLink}>Back to home</Link>
+              <Link to="/" className={styles.backLink}>
+                Back to home
+              </Link>
               <button className={styles.editButton} onClick={() => setIsEditing(true)}>
                 Edit task
               </button>
@@ -78,13 +78,13 @@ export function TaskDetail() {
               <div className={styles.row}>
                 <strong>Assignee</strong>
                 {task.assignee ? (
-                 <UserTag
-                 user={
-                   typeof task.assignee === "string"
-                     ? { _id: task.assignee, name: "Unknown User" } // fallback for string IDs
-                     : task.assignee
-                 }
-               />
+                  <UserTag
+                    user={
+                      typeof task.assignee === "string"
+                        ? { _id: task.assignee, name: "Unknown User" } // fallback for string IDs
+                        : task.assignee
+                    }
+                  />
                 ) : (
                   <span>Unassigned</span>
                 )}

@@ -17,11 +17,7 @@ export function UserTag({ user, className }: UserTagProps) {
 
   return (
     <div className={`${styles.userTag} ${className || ""}`}>
-      <img
-        className={styles.profilePicture}
-        src={profilePictureSrc}
-        alt={displayName}
-      />
+      <img className={styles.profilePicture} src={profilePictureSrc} alt={displayName} />
       <span className={styles.name}>{displayName}</span>
     </div>
   );

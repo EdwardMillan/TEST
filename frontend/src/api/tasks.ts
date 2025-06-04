@@ -4,7 +4,6 @@ import { User } from "./users";
 
 import type { APIResult } from "src/api/requests";
 
-
 /**
  * Defines the "shape" of a Task object (what fields are present and their types) for
  * frontend components to use.
