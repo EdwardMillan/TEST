@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+
 import { Helmet } from "react-helmet-async";
+import { Link, useParams } from "react-router-dom";
 
 import { HeaderBar } from "src/components/HeaderBar";
 import { TaskForm } from "src/components/TaskForm";
 import { UserTag } from "src/components/UserTag";
 
 import styles from "./TaskDetail.module.css";
-
 import { getTask } from "../api/tasks";
 import type { Task } from "src/api/tasks";
 
