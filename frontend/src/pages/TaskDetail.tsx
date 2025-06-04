@@ -1,12 +1,17 @@
 import { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+
+import { HeaderBar } from "src/components/HeaderBar";
+import { TaskForm } from "src/components/TaskForm";
+import { UserTag } from "src/components/UserTag";
+
+import styles from "./TaskDetail.module.css";
+
 import { getTask } from "../api/tasks";
 import type { Task } from "src/api/tasks";
-import styles from "./TaskDetail.module.css";
-import { HeaderBar } from "src/components/HeaderBar";
-import { UserTag } from "src/components/UserTag";
-import { TaskForm } from "src/components/TaskForm";
+
+
 
 export function TaskDetail() {
   const { id } = useParams();
