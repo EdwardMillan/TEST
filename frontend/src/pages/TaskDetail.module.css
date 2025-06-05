@@ -1,0 +1,80 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  color: #fff;
+  background-color: #082b34;
+  font-family: sans-serif;
+}
+
+.topBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.backLink {
+  color: #a9c9ff;
+  text-decoration: underline;
+}
+
+.editButton {
+  background-color: #fcd000;
+  color: #000;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  word-break: break-word;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.description {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+.overflow {
+  width: 1em;
+  outline: 1px solid #000;
+  margin: 0 0 2em 0;
+  /**
+ * Required properties to achieve text-overflow
+ */
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.meta {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.assignee {
+  display: flex;
+  align-items: center;
+  gap: 0rem;
+  margin-top: 0.25rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.avatar {
+  font-size: 1.2rem;
+}
+
+.notFound {
+  font-size: 1.5rem;
+  color: #ffaaaa;
+}

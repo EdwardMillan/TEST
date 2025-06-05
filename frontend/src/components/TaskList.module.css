@@ -1,13 +1,73 @@
-.container {
-  margin-top: 3rem;
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid var(--color-border);
+  transition: background-color 0.2s ease;
+}
+
+.item:hover {
+  background-color: var(--color-surface); /* ✅ Shading the full box on hover */
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  margin-left: 1rem;
+  color: var(--color-text-primary);
+  transition: color 0.2s ease;
+}
+
+.item:hover .textContainer {
+  color: var(--color-text-hover); /* ✅ Highlight title + description on hover */
+}
+
+.checked {
+  color: var(--color-text-secondary);
+}
+
+.titleLink {
+  text-decoration: none;
+  color: inherit;
+}
+
+.titleLink:hover {
+  text-decoration: underline;
 }
 
 .title {
-  font: var(--font-heading);
+  font-weight: bold;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
-.items {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
+.description {
+  font-size: 0.9rem;
+  color: inherit;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.overflow {
+  width: 1em;
+  outline: 1px solid #000;
+  margin: 0 0 2em 0;
+  /**
+ * Required properties to achieve text-overflow
+ */
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.right {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
 }
